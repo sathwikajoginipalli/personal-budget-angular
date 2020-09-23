@@ -70,10 +70,20 @@ header.hero h2 {
     padding: 4px;
     position: absolute;
     transform: translateY(-100%);
-    transition: transform 0.3s;
   }
   
   .skip-link:focus {
+    transform: translateY(0%);
+  }
+  .skip-link {
+    /* Same as  before */
+    transition: transform 0.3s;
+  }
+  .skip-link {
+    transform: translateY(-100%);
+  }
+  
+  .skip-link:focus-within {
     transform: translateY(0%);
   }
 .container {
