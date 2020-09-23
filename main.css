@@ -79,10 +79,6 @@ header.hero h2 {
     /* Same as  before */
     transition: transform 0.3s;
   }
-  .skip-link {
-    transform: translateY(-100%);
-  }
-  
   .skip-link:focus-within {
     transform: translateY(0%);
   }
