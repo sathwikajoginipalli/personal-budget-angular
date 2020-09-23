@@ -9,7 +9,7 @@
     "icons": [
         {
             "src": "/pb/bg.png",
-            "sizes": "36x36",
+            "sizes": "512X512",
             "type": "image\/png"
         }
     ]
