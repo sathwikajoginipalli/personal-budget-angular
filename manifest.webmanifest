@@ -1,0 +1,16 @@
+{
+    "name": "Personal Budget",
+    "short_name": "PBudget",
+    "start_url": "/",
+    "display": "standalone",
+    "crossorigin": "use-credentials",
+    "background_color": "#fafafa",
+    "theme_color": "#45abe1",
+    "icons": [
+        {
+            "src": "/pb/bg.png",
+            "sizes": "36x36",
+            "type": "image\/png"
+        }
+    ]
+}
