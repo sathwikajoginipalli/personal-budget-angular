@@ -10,7 +10,8 @@
         {
             "src": "/pb/bg.png",
             "sizes": "512X512",
-            "type": "image\/png"
+            "type": "image\/png",
+            "purpose": "any maskable"
         }
     ]
 }
