@@ -76,7 +76,6 @@ header.hero h2 {
     transform: translateY(0%);
   }
   .skip-link {
-    /* Same as  before */
     transition: transform 0.3s;
   }
   .skip-link {
