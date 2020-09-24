@@ -71,7 +71,6 @@ header.hero h2 {
     position: absolute;
     transform: translateY(-100%);
   }
-  
   .skip-link:focus {
     transform: translateY(0%);
   }
