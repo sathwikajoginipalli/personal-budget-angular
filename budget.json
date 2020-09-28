@@ -1,0 +1,37 @@
+
+    [
+        { 
+            "title" : "Eat out", 
+            "budget" : "25"
+        },
+        { 
+            "title" : "Rent", 
+            "budget" : "375" 
+        },
+        { 
+            "title" : "Grocery", 
+            "budget" : "110"
+        }, 
+        { 
+            "title" : "Insurance", 
+            "budget" : "350" 
+        }, 
+        { 
+            "title" : "EMI", 
+            "budget" : "225"
+        },
+        { 
+            "title" : "Shopping", 
+            "budget" : "130"
+        },  
+        { 
+            "title" : "Parties", 
+            "budget" : "100"
+        },
+        {
+            "title" : "holidays",
+            "budget": "700"
+        }
+    ]
+
+

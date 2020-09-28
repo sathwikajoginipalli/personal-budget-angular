@@ -72,7 +72,8 @@
             <article class="text-box">
                 <h1>Free</h1>
                 <p>
-                    This app is free!!! And you are the only one holding your data!
+                    If you really stop to track it down, you would get surprised! Proper budget management depends on real data... and this
+                    app will help you with that!
                 </p>
             </article>
             <!-- This is a Semantic HTML Change -->
@@ -93,16 +94,14 @@
             </article>
             <!-- This is a Semantic HTML Change -->
             <article class="text-box">
-                <h1>Results</h1>
+                <h1>Bar-Chart</h1>
                 <p>
-                    People who stick to a financial plan, budgeting every expense, get out of debt faster!
-                    Also, they to live happier lives... since they expend without guilt or fear... 
-                    because they know it is all good and accounted for.
+                    <canvas id="myChart1" width="400" height="400"></canvas>
                 </p>
             </article>
             <!-- This is a Semantic HTML Change -->
             <article class="text-box">
-                <h1>Chart</h1>
+                <h1>Pie-Chart</h1>
                 <p>
                     <canvas id="myChart" width="400" height="400"></canvas>
                 </p>
@@ -126,10 +125,14 @@
                 {
                     data: [],
                     backgroundColor: [
-                        '#ffcd56',
                         '#ff6384',
                         '#36a2eb',
                         '#fd6b19',
+                        '#d0743c',
+                        '#a05d56',
+                        '#7b6888',
+                        '#8a89a6',
+                        '#98abc5'
                     ],
                 }
             ],
@@ -138,19 +141,25 @@
 
         function createChart() {
             var ctx = document.getElementById("myChart").getContext("2d");
+            var ctx1 = document.getElementById("myChart1").getContext("2d");
             var myPieChart = new Chart(ctx, {
                 type: 'pie',
                 data: dataSource
-            });
+            })
+            var myBarChart = new Chart(ctx1, {
+                type: 'bar',
+                data: dataSource
+            }
+            );
         }
 
         function getBudget() {
             axios.get('/budget')
             .then(function (res) {
                 console.log(res);
-                for(var i=0; i < res.data.myBudget.length; i++) {
-                    dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
-                    dataSource.labels[i] = res.data.myBudget[i].title;
+                for(var i=0; i < res.data.length; i++) {
+                    dataSource.datasets[0].data[i] = res.data[i].budget;
+                    dataSource.labels[i] = res.data[i].title;
                 }
                 createChart();
                 
