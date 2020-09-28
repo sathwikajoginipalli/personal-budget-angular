@@ -10,13 +10,13 @@
     <!-- This is an SEO Change -->
     <meta name="theme-color" content="#317EFB"/>
     <title>Personal Budget</title>
-    <link rel="stylesheet" href="/pb/reset.css">
-    <link rel="stylesheet" href="/pb/main.css">
+    <link rel="stylesheet" href="/reset.css">
+    <link rel="stylesheet" href="/main.css">
     <!-- This is an SEO Change -->
     <!-- This is an A11y Change -The alternative text-->
-    <link rel="apple-touch-icon" href="/pb/bg.png" alt = "Laptop and Mobile">
+    <link rel="apple-touch-icon" href="/bg.png" alt = "Laptop and Mobile">
     <!-- This is an SEO Change -->
-    <link rel="manifest" href="/pb/manifest.webmanifest">
+    <link rel="manifest" href="/manifest.webmanifest">
 
 
 </head>
@@ -28,8 +28,8 @@
     <nav class="menu">
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="/pb/about.html">About</a></li>
-            <li><a href="/pb/login.html">Login</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/login.html">Login</a></li>
             <li><a href="https://google.com">Google</a></li>
         </ul>
     </nav>
@@ -102,9 +102,9 @@
             </article>
             <!-- This is a Semantic HTML Change -->
             <article class="text-box">
-                <h1>Free</h1>
+                <h1>Chart</h1>
                 <p>
-                    This app is free!!! And you are the only one holding your data!
+                    <canvas id="myChart" width="400" height="400"></canvas>
                 </p>
             </article>
 
@@ -118,5 +118,45 @@
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js" integrity="sha512-quHCp3WbBNkwLfYUMd+KwBAgpVukJu5MncuQaWXgCrfgcxCJAq/fo+oqrRKOj+UKEmyMCG3tb8RB63W+EmrOBg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+    <script>
+        var dataSource = {
+            datasets: [
+                {
+                    data: [],
+                    backgroundColor: [
+                        '#ffcd56',
+                        '#ff6384',
+                        '#36a2eb',
+                        '#fd6b19',
+                    ],
+                }
+            ],
+            labels: []
+        };
+
+        function createChart() {
+            var ctx = document.getElementById("myChart").getContext("2d");
+            var myPieChart = new Chart(ctx, {
+                type: 'pie',
+                data: dataSource
+            });
+        }
+
+        function getBudget() {
+            axios.get('/budget')
+            .then(function (res) {
+                console.log(res);
+                for(var i=0; i < res.data.myBudget.length; i++) {
+                    dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
+                    dataSource.labels[i] = res.data.myBudget[i].title;
+                }
+                createChart();
+                
+            });
+        }
+        getBudget();
+    </script>
 </body>
 </html>
