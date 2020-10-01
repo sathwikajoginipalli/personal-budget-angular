@@ -106,14 +106,14 @@
         <article class="text-box">
           <h1>Doughnut-Chart</h1>
           <button class="randomize">randomize</button>
-          <div id="chart" width="400" height="400"></div>
+          <p>
+            <div id="chart"></div>
+          </p>
         </article>
         <!-- This is a Semantic HTML Change -->
         <article class="text-box">
           <h1>Pie-Chart</h1>
-          <p>
-            <canvas id="myChart" width="400" height="400"></canvas>
-          </p>
+            <canvas id="myChart"></canvas>
         </article>
       </div>
     </main>
@@ -142,8 +142,8 @@
       svg.append("g").attr("class", "labels");
       svg.append("g").attr("class", "lines");
 
-      var width = 200,
-        height = 200,
+      var width = 150,
+        height = 150,
         radius = Math.min(width, height) / 2;
 
       var pie = d3.layout
@@ -193,6 +193,7 @@
           "#a05d56",
           "#d0743c",
           "#ff8c00",
+          "#36a2eb"
         ]);
 
       function randomData() {
@@ -200,15 +201,40 @@
           for (var i = 0; i < res.data.length; i++) {
             result[i] = res.data[i].title;
           }
-          console.log(result);
+          // change(randomData());
         });
+        // change(randomData());
         return result.map(function (label) {
-          return { label: result, value: Math.random() };
+          return { label: label, value: Math.random() };
         });
       }
+      // d3.select(".randomize").on("click", function () {
+      //   change(randomData());
+      // });
+      // function getbudget1() {
+      //   axios.get("/budget").then(function (res) {
+      //     for (var i = 0; i < res.data.length; i++) {
+      //       // dataSource.datasets[0].data[i] = res.data[i].budget;
+      //       dataSource.labels[i] = res.data[i].title;
+      //     }
+      //     // createChart();
+      //     // change(getBudget());
 
-      change(randomData());
+      //   });
+      //   return dataSource.labels.map(function (label) {
+      //     return { label: label, value: Math.random() };
+      //   });
+      // }
 
+      // change(randomData());
+      setTimeout(() => {
+        change(randomData());
+        
+      }, 1000);
+  
+      d3.select(window).on("load", function () {
+        change(randomData());
+      });
       d3.select(".randomize").on("click", function () {
         change(randomData());
       });
@@ -340,12 +366,12 @@
 
       function getBudget() {
         axios.get("/budget").then(function (res) {
-          console.log(res);
           for (var i = 0; i < res.data.length; i++) {
             dataSource.datasets[0].data[i] = res.data[i].budget;
             dataSource.labels[i] = res.data[i].title;
           }
           createChart();
+          // change(getBudget());
         });
     }
 

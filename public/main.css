@@ -92,9 +92,16 @@ header.hero h2 {
     max-width: 768px;
     display: inline-block;
 }
+#chart {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width: 100px;
+    height: 100px;
+    position:center;
+  }
 svg {
-	width: 100%;
-	height: 100%;
+	width: 50px;
+    height: 50px;
+    overflow : visible;
 }
 
 path.slice{
@@ -120,10 +127,10 @@ polyline{
 
 .container article.text-box {
     display: inline-block;
-    width: 100%;
+    width: 80%;
     max-width: 340px;
     text-align: justify;
-    margin: 20px;
+    margin: 5px;
 }
 
 @media screen and (min-width: 768px) {
