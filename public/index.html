@@ -105,15 +105,16 @@
         <!-- This is a Semantic HTML Change -->
         <article class="text-box">
           <h1>Doughnut-Chart</h1>
+          <br>
           <button class="randomize">randomize</button>
           <p>
             <div id="chart"></div>
           </p>
         </article>
         <!-- This is a Semantic HTML Change -->
-        <article class="text-box">
+        <article class="text-box" style='vertical-align: top;'>
           <h1>Pie-Chart</h1>
-            <canvas id="myChart"></canvas>
+          <p><canvas id="myChart" width = "100" height = "100"></canvas></p> 
         </article>
       </div>
     </main>
@@ -142,8 +143,8 @@
       svg.append("g").attr("class", "labels");
       svg.append("g").attr("class", "lines");
 
-      var width = 150,
-        height = 150,
+      var width = 250,
+        height = 250,
         radius = Math.min(width, height) / 2;
 
       var pie = d3.layout

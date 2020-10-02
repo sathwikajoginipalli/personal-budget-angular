@@ -84,7 +84,7 @@ header.hero h2 {
     transform: translateY(0%);
   }
 .container {
-    padding: 40px;
+    padding: 20px;
     width: 100%;
 }
 
@@ -92,6 +92,10 @@ header.hero h2 {
     max-width: 768px;
     display: inline-block;
 }
+p {
+    margin: 0;
+    padding: 0;
+ }
 #chart {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     width: 100px;
@@ -127,8 +131,8 @@ polyline{
 
 .container article.text-box {
     display: inline-block;
-    width: 80%;
-    max-width: 340px;
+    width: 50%;
+    max-width: 300px;
     text-align: justify;
     margin: 5px;
 }
