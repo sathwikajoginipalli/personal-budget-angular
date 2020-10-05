@@ -13,13 +13,13 @@
     <!-- This is an SEO Change -->
     <meta name="theme-color" content="#317EFB" />
     <title>Personal Budget</title>
-    <link rel="stylesheet" href="/reset.css" />
-    <link rel="stylesheet" href="/main.css" />
+    <link rel="stylesheet" href="/public/reset.css" />
+    <link rel="stylesheet" href="/public/main.css" />
     <!-- This is an SEO Change -->
     <!-- This is an A11y Change -The alternative text-->
-    <link rel="apple-touch-icon" href="/bg.png" alt="Laptop and Mobile" />
+    <link rel="apple-touch-icon" href="/public/bg.png" alt="Laptop and Mobile" />
     <!-- This is an SEO Change -->
-    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="manifest" href="/public/manifest.webmanifest" />
     <script src="https://d3js.org/d3.v3.min.js"></script>
   </head>
   <body>
@@ -198,7 +198,7 @@
         ]);
 
       function randomData() {
-        axios.get("/budget").then(function (res) {
+        axios.get("http://localhost:3000/budget").then(function (res) {
           for (var i = 0; i < res.data.length; i++) {
             result[i] = res.data[i].title;
           }
@@ -366,7 +366,7 @@
       }
 
       function getBudget() {
-        axios.get("/budget").then(function (res) {
+        axios.get("http://localhost:3000/budget").then(function (res) {
           for (var i = 0; i < res.data.length; i++) {
             dataSource.datasets[0].data[i] = res.data[i].budget;
             dataSource.labels[i] = res.data[i].title;
