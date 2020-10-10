@@ -12,9 +12,9 @@ export class DataService {
   }
   dataSource =  []; //
   // tslint:disable-next-line: variable-name
-  public _url = 'http://localhost:3000/budget';
+  public url = 'http://localhost:3000/budget';
  // tslint:disable-next-line: typedef
  Budget(): Observable<any>{
-  return this.http.get(this._url);
+  return this.http.get(this.url);
 }
 }
