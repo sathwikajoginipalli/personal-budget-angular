@@ -39,14 +39,6 @@ export class HomepageComponent implements OnInit {
   private colors;
 
   ngOnInit(): void {
-    if (this.data1.dataSource.length > 0){
-      this.data2 = this.data1.dataSource;
-      this.createChart();
-      this.textfile();
-      this.createSvg();
-      this.createColors();
-      this.drawChart();
-    } else {
     this.data1.Budget().subscribe((res: any) => {
       for (let i = 0; i < res.length; i++) {
         this.dataSource.datasets[0].data[i] = res[i].budget;
@@ -58,7 +50,7 @@ export class HomepageComponent implements OnInit {
       this.createColors();
       this.drawChart();
     });
-  }}
+  }
 
   textfile() {
 

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { shareReplay, takeUntil } from 'rxjs/operators';
 
 @Injectable({
  providedIn: 'root'
@@ -8,13 +9,20 @@ import { Observable } from 'rxjs';
 export class DataService {
 
  constructor(private http: HttpClient) {
-
   }
-  dataSource =  []; //
-  // tslint:disable-next-line: variable-name
-  public url = 'http://localhost:3000/budget';
- // tslint:disable-next-line: typedef
- Budget(): Observable<any>{
-  return this.http.get(this.url);
+ dataObservable: Observable<any>;
+
+ public url = 'http://localhost:3000/budget';
+
+ Budget(): Observable<any> {
+  if (this.dataObservable) {
+    return this.dataObservable;
+  } else {
+    this.dataObservable = this.http.get(this.url).pipe(shareReplay());
+    return this.dataObservable;
+  }
 }
+// Budget() {
+//   return this.http.get(this.url);
+// }
 }
