@@ -14,7 +14,7 @@ export class DataService {
   // tslint:disable-next-line: variable-name
   public _url = 'http://localhost:3000/budget';
  // tslint:disable-next-line: typedef
- Budget(){
+ Budget(): Observable<any>{
   return this.http.get(this._url);
 }
 }
