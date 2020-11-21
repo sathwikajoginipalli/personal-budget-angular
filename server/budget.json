@@ -2,7 +2,7 @@
     [
         { 
             "title" : "Eat out", 
-            "budget" : "25"
+            "budget" : "225"
         },
         { 
             "title" : "Rent", 
@@ -18,7 +18,7 @@
         }, 
         { 
             "title" : "EMI", 
-            "budget" : "225"
+            "budget" : "125"
         },
         { 
             "title" : "Shopping", 
